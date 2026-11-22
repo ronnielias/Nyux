@@ -1,0 +1,5 @@
+fn main() {
+    let login = Window::new("Login", 320, 340)
+    login.add_button("Guardar")
+    login.show()
+}

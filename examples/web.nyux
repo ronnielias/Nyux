@@ -1,0 +1,7 @@
+fn main() {
+    let server = Web::server(8080)
+    Web::page("/", "<h1>Hola desde Nyux</h1>")
+    Web::api("/users")
+    print("Servidor local: http://127.0.0.1:8080")
+    server.serve()
+}

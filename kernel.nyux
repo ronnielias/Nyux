@@ -1,0 +1,16 @@
+use xanlib
+
+fn main() {
+    let runtime = boot_system()
+    let heap = initialize_memory(65536)
+
+    write_screen("NyxOS kernel de demostracion")
+    heap.write(0, "NyxOS")
+    print("Banner en memoria:", heap.read(0, 5))
+
+    for (tick = 0, 3) {
+        print("Bucle principal, tick", tick)
+    }
+
+    print("Kernel alojado listo; no se ha iniciado hardware real")
+}

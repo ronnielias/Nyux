@@ -1,0 +1,33 @@
+// Xanlib: APIs del runtime alojado y adaptadores nativos de ventana.
+
+fn boot_system() {
+    return System::boot()
+}
+
+fn initialize_memory(bytes) {
+    return Memory::init(bytes)
+}
+
+fn write_screen(message) {
+    Screen::write(message)
+}
+
+fn open_file(path) {
+    return File::open(path)
+}
+
+fn spawn_process(program) {
+    return Process::spawn(program)
+}
+
+fn create_window(title, width, height) {
+    return Window::create(title, width, height)
+}
+
+fn show_window(window) {
+    window.show()
+}
+
+fn load_driver(path) {
+    return Driver::load(path)
+}

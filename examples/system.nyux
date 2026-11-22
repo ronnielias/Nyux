@@ -1,0 +1,18 @@
+fn main() {
+    let system = System::boot()
+    let memory = Memory::init(65536)
+    let written = memory.write(0, "NyxOS")
+    let banner = memory.read_text(0, 5)
+
+    print("Sistema anfitrión:", system.name())
+    print("Arena real del proceso:", memory.capacity(), "bytes")
+    print("Bytes escritos:", written)
+
+    if (banner == "NyxOS") {
+        print("Lectura verificada:", banner)
+    } else {
+        print("Error: la lectura de memoria no coincide")
+    }
+
+    print("CPU anfitriona:", CPU::info())
+}
