@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+
+if [ "$#" -ne 2 ] || [ "$1" != "run" ]; then
+    printf 'Uso: ./nyux run <archivo.nyux>\n' >&2
+    exit 2
+fi
+
+script_dir=$(CDPATH= cd "$(dirname "$0")" && pwd)
+exec python3 "$script_dir/nyux.py" "$2"

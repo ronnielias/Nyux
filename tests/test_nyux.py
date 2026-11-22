@@ -1,6 +1,7 @@
 import contextlib
 import io
 import json
+import subprocess
 import sys
 import unittest
 from pathlib import Path
@@ -17,6 +18,17 @@ def parse_file(path: Path) -> nyux.Program:
 
 
 class NyuxRuntimeTests(unittest.TestCase):
+    def test_official_launcher_runs_a_nyux_file(self) -> None:
+        result = subprocess.run(
+            [str(ROOT / "nyux"), "run", str(ROOT / "examples" / "mi-primer-nyux.nyux")],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("Hola, Nyux!", result.stdout)
+
     def test_examples_main_and_system_finish(self) -> None:
         expected = {
             "main.nyux": "Nyux Universal: 8",
