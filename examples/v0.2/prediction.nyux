@@ -1,0 +1,8 @@
+fn main() {
+    let scores = CSV::load("examples/v0.2/scores.csv")
+    let model = AI::fit_linear(scores, "hours", "score")
+    print("Filas:", scores.count())
+    print("Media de score:", scores.mean("score"))
+    print("Modelo:", model.summary_json())
+    print("Predicción para 6 horas:", model.predict(6))
+}

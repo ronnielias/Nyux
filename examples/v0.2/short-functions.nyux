@@ -1,0 +1,6 @@
+fun double(value: Int): Int = value * 2
+
+fn main() {
+    let count: Int = 21
+    print("Resultado:", double(count))
+}

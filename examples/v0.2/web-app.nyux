@@ -1,0 +1,14 @@
+fn home(path, body) {
+    return Web::html("<!doctype html><html lang=\"es\"><meta charset=\"utf-8\"><title>Nyux 0.2</title><link rel=\"stylesheet\" href=\"/style.css\"><h1>Web Nyux 0.2</h1><p>El handler dinámico responde desde Nyux.</p><script src=\"/app.js\"></script>")
+}
+
+fn echo(path, body) {
+    return Web::json(Json::parse(body))
+}
+
+fn main() {
+    let app = Web::app(8080, "examples/v0.2/site/public")
+    app.route("GET", "/hello", "home")
+    app.route("POST", "/api/echo", "echo")
+    app.serve()
+}

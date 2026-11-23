@@ -1,0 +1,13 @@
+fn main() {
+    let greeting: String = "Nyux 0.2"
+    let db = Sql::open(":memory:")
+    db.execute("CREATE TABLE messages (text TEXT)")
+    db.execute("INSERT INTO messages (text) VALUES (?)", greeting)
+    db.commit()
+
+    let rows = db.query("SELECT text FROM messages")
+    print("SQLite rows:", rows.count())
+    print("JSON data:", rows.to_json())
+    print("JSON round trip:", Json::stringify(Json::parse(rows.to_json())))
+    db.close()
+}

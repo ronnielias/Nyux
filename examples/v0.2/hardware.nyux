@@ -1,0 +1,7 @@
+fn main() {
+    let cpu = Hardware::read_text("/proc/cpuinfo")
+    let sensors = Sensor::temperatures()
+    print("Datos de CPU leídos desde /proc:", cpu != "")
+    print("Sensores térmicos:", sensors.count())
+    print("Lecturas:", sensors.to_json())
+}

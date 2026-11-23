@@ -52,3 +52,17 @@ para los límites actuales y [SPEC.md](./SPEC.md) para la sintaxis.
 
 Nyux compila sus archivos a bytecode y lo ejecuta en una VM alojada en Python;
 no genera código máquina nativo.
+
+## Nyux 0.2 (extensiones en desarrollo)
+
+La 0.1 publicada y su comando `./nyux run ...` se conservan. Las extensiones
+experimentales 0.2 usan una entrada separada:
+
+```sh
+./nyux2 run examples/v0.2/sql-json.nyux
+./nyux2 run examples/v0.2/concurrency.nyux
+```
+
+Incluyen comprobaciones de tipos escalares en ejecución, SQLite, JSON y tareas
+concurrentes alojadas en Python. No son un compilador nativo ni acceso a
+hardware. Detalles y límites: [NYUX_0.2.md](./NYUX_0.2.md).

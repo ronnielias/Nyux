@@ -1,0 +1,11 @@
+fn square(value) {
+    return value * value
+}
+
+fn main() {
+    let first = Task::spawn("square", 12)
+    let second = Task::spawn("square", 13)
+
+    print("12 al cuadrado:", first.await())
+    print("13 al cuadrado:", second.await())
+}

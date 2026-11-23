@@ -1,0 +1,8 @@
+fn main() {
+    let game = Game::world("Nyux 2D", 640, 400)
+    game.spawn("player", 120, 180)
+    game.spawn("target", 340, 180)
+    game.add_score()
+    print("Estado inicial:", game.state_json())
+    game.run()
+}
